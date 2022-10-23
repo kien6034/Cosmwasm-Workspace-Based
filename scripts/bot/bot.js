@@ -1,10 +1,13 @@
-const env = require("../config");
+let env = require("../config");
 const { makeCosmoshubPath } = require("@cosmjs/amino");
 const { DirectSecp256k1HdWallet } = require("@cosmjs/proto-signing");
 const { SigningCosmWasmClient, CosmWasmClient }= require("@cosmjs/cosmwasm-stargate");
 const { GasPrice } = require("@cosmjs/stargate");
 const fs = require("fs");
 const BigNumber = require("big-number");
+
+
+env = env[env.NETWORK];
 
 class Bot {
     constructor() {
